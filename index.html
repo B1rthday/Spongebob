@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fbf4e9">
+  <meta name="robots" content="noindex">
+  <title>A Little World Made for You</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="bg-decor" aria-hidden="true">
+    <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+    <span class="dot d4"></span><span class="dot d5"></span><span class="dot d6"></span>
+    <span class="dot d7"></span><span class="dot d8"></span>
+  </div>
+
+  <div id="paw-layer" class="paw-layer" aria-hidden="true"></div>
+
+  <main id="app">
+
+    <!-- Scene A: opening -->
+    <section class="scene is-active" data-scene="a" id="scene-a" aria-labelledby="title-a">
+      <div class="card intro">
+        <p class="eyebrow">A little surprise</p>
+        <h1 id="title-a" tabindex="-1">A Little World Made for You 🐾</h1>
+        <p class="lead">Someone wonderful is celebrating another year today&hellip;</p>
+        <p>And I may have prepared a tiny surprise.</p>
+        <button class="btn primary" type="button" data-action="open-surprise">Open your little surprise</button>
+      </div>
+    </section>
+
+    <!-- Scene B: animal sanctuary -->
+    <section class="scene" data-scene="b" id="scene-b" hidden aria-labelledby="title-b">
+      <div class="card">
+        <p class="eyebrow">The sanctuary</p>
+        <h2 id="title-b" tabindex="-1">Who's visiting today?</h2>
+        <p class="lead small">Tap an animal to meet them.</p>
+
+        <div class="zoo" role="group" aria-label="Choose an animal">
+          <button class="zoo-btn" type="button" data-animal="cat" aria-pressed="false" aria-label="Cat">
+            <span class="zoo-art" data-svg="cat"></span><span class="zoo-name">Cat</span>
+          </button>
+          <button class="zoo-btn" type="button" data-animal="bunny" aria-pressed="false" aria-label="Bunny">
+            <span class="zoo-art" data-svg="bunny"></span><span class="zoo-name">Bunny</span>
+          </button>
+          <button class="zoo-btn" type="button" data-animal="puppy" aria-pressed="false" aria-label="Puppy">
+            <span class="zoo-art" data-svg="puppy"></span><span class="zoo-name">Puppy</span>
+          </button>
+          <button class="zoo-btn" type="button" data-animal="fox" aria-pressed="false" aria-label="Fox">
+            <span class="zoo-art" data-svg="fox"></span><span class="zoo-name">Fox</span>
+          </button>
+          <button class="zoo-btn" type="button" data-animal="goat" aria-pressed="false" aria-label="Goat">
+            <span class="zoo-art" data-svg="goat"></span><span class="zoo-name">Goat</span>
+          </button>
+        </div>
+
+        <div class="stage" id="stage" aria-live="polite">
+          <div class="animal-art" id="animal-art"></div>
+          <h3 id="animal-name" class="animal-name">Pick a friend</h3>
+          <p id="animal-line" class="animal-line">Every visitor here has a little personality. Let's see yours.</p>
+        </div>
+
+        <figure class="bonus" id="norway" hidden>
+          <img id="norway-img" src="assets/images/norway-goat.jpg" alt="A goat from our Norway trip">
+          <figcaption>The legendary Norway goat incident</figcaption>
+        </figure>
+
+        <button class="btn primary" type="button" data-action="go-c">There's something else…</button>
+      </div>
+    </section>
+
+    <!-- Scene C: personal note -->
+    <section class="scene" data-scene="c" id="scene-c" hidden aria-labelledby="title-c">
+      <div class="card">
+        <p class="eyebrow">A note for you</p>
+        <h2 id="title-c" tabindex="-1">Okay, jokes aside ❤️</h2>
+        <p class="lead">I just wanted to remind you that you're genuinely such a kind and caring person.</p>
+        <p>You make a difference just by being the person you are, and I'm really glad I get to call you my friend.</p>
+
+        <div class="reveal-slot" aria-live="polite">
+          <p class="hidden-note" id="one-more-text" hidden>
+            I hope you remember to be as kind to yourself as you are to the people around you. You deserve happiness, care, and plenty of reasons to smile, too. 💗
+          </p>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn primary" type="button" id="one-more-btn" data-action="one-more">One more thing…</button>
+          <button class="btn ghost" type="button" data-action="go-d">Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene D: little reminder of love -->
+    <section class="scene" data-scene="d" id="scene-d" hidden aria-labelledby="title-d">
+      <div class="card">
+        <p class="eyebrow">A little reminder</p>
+        <h2 id="title-d" tabindex="-1">Someone's been looking out for you</h2>
+
+        <button class="envelope" type="button" data-action="toggle-envelope" aria-expanded="false" aria-controls="letter">
+          <span class="envelope-flap" aria-hidden="true"></span>
+          <span class="envelope-label">Tap to open</span>
+        </button>
+
+        <div class="letter" id="letter" hidden>
+          <p>Sometimes the people who care about us are showing it in little ways we don't always notice.</p>
+          <p>I hope you always have moments that remind you how loved, supported, and appreciated you are. You deserve that kind of warmth. ❤️</p>
+        </div>
+
+        <button class="btn primary" type="button" data-action="go-e">Continue the adventure</button>
+      </div>
+    </section>
+
+    <!-- Scene E: wishes -->
+    <section class="scene" data-scene="e" id="scene-e" hidden aria-labelledby="title-e">
+      <div class="card">
+        <p class="eyebrow">Three wishes</p>
+        <h2 id="title-e" tabindex="-1">YOUR NEXT CHAPTER ✨</h2>
+
+        <ol class="wishes">
+          <li>
+            <button class="wish" type="button" data-action="reveal-wish" data-wish="0" aria-expanded="false">
+              <span class="wish-num">1</span>
+              <span class="wish-hint">Tap to reveal</span>
+              <span class="wish-text" hidden>May your days be full of little adventures, happy surprises, and animals to adore.</span>
+            </button>
+          </li>
+          <li>
+            <button class="wish" type="button" data-action="reveal-wish" data-wish="1" aria-expanded="false">
+              <span class="wish-num">2</span>
+              <span class="wish-hint">Tap to reveal</span>
+              <span class="wish-text" hidden>May you find people who appreciate your kindness and friendships that make you feel understood.</span>
+            </button>
+          </li>
+          <li>
+            <button class="wish" type="button" data-action="reveal-wish" data-wish="2" aria-expanded="false">
+              <span class="wish-num">3</span>
+              <span class="wish-hint">Tap to reveal</span>
+              <span class="wish-text" hidden>May this new year bring you confidence, laughter, wonderful memories, and so many reasons to smile.</span>
+            </button>
+          </li>
+        </ol>
+
+        <button class="btn primary" type="button" data-action="go-f">Unlock your final surprise 🎁</button>
+      </div>
+    </section>
+
+    <!-- Scene F: video premiere -->
+    <section class="scene" data-scene="f" id="scene-f" hidden aria-labelledby="title-f">
+      <div class="card">
+        <p class="eyebrow">The grand finale</p>
+        <h2 id="title-f" tabindex="-1">ONE LAST LITTLE SURPRISE 🎬</h2>
+        <p class="lead small">Because one birthday message wasn't enough.</p>
+
+        <div class="video-frame" id="video-frame">
+          <video id="birthday-video" controls playsinline preload="metadata" aria-label="Birthday video">
+            <source src="assets/video/birthday-video.mp4" type="video/mp4">
+            Your browser can't play this video.
+          </video>
+
+          <div class="video-placeholder" id="video-placeholder" hidden>
+            <p class="placeholder-title">The video isn't in place yet</p>
+            <p class="small">Add your file at <code>assets/video/birthday-video.mp4</code> and refresh this page.</p>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn primary" type="button" id="video-continue" data-action="go-g" hidden>Continue to the final message</button>
+          <button class="btn ghost" type="button" id="video-skip" data-action="go-g" hidden>Skip to the final message</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene G: goodbye -->
+    <section class="scene" data-scene="g" id="scene-g" hidden aria-labelledby="title-g">
+      <div class="card closing">
+        <h2 id="title-g" tabindex="-1">HAPPY BIRTHDAYYY!! 💗🐾</h2>
+        <p class="lead">I hope today makes you smile as much as you make the people around you smile.</p>
+        <p>Stay kind, keep loving all those adorable animals, and never forget that you're appreciated.</p>
+        <p class="sign-off">Sending you the biggest birthday hug. 🫶</p>
+        <button class="btn primary" type="button" data-action="reset">Experience it again</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
